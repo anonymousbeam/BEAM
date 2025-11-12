@@ -1,0 +1,5 @@
+.cache
+.conda
+__pycache__
+checkpoints
+wandb
