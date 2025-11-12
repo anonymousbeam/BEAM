@@ -146,8 +146,6 @@ Number of Steps per Checkpoint: {num_steps_per_checkpoint}
 
                 if (global_step) % num_steps_per_checkpoint == 0:
                     save_beam_weights(model, model_name + "_step-" + str(global_step))
-                break
-        break
 
     if use_wandb:
         wandb.finish()

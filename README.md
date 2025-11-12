@@ -117,12 +117,10 @@ Below is an example command to BEAM on Llama-3.1-8B-Instruct:
 CUDA_VISIBLE_DEVICES=0 python -m beam.main \
     --model_name llama_8b \
     --num_epochs 1 \
-    --batch_size 64 \
+    --batch_size 8 \
     --microbatch_size 1 \
     --lr 2e-5 \
-    --bottleneck_dim 4 \
     --run_name "llama_3.1_8b-BEAM" \
-    --checkpoint_amount 2 \
     --use_wandb true
 ```
 

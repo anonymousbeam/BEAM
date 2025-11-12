@@ -1,15 +1,20 @@
 import json
+import glob
 from torch.utils.data import Dataset
 
-JSON_PATH = 'dataset/long_alpaca_cleaned.json'
+JSON_PATH = 'dataset/long_alpaca_cleaned-*.json'
 
 
 class LongAlpacaDataset(Dataset):
     def __init__(self, tokenizer):
         self.tokenizer = tokenizer
 
-        with open(JSON_PATH, 'r', encoding='utf-8') as f:
-            raw_data = json.load(f)
+        json_files = sorted(glob.glob(JSON_PATH))
+        
+        raw_data = []
+        for json_file in json_files:
+            with open(json_file, 'r', encoding='utf-8') as f:
+                raw_data.extend(json.load(f))
 
         self.examples = []
         for item in raw_data:
